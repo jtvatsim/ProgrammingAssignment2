@@ -39,8 +39,9 @@ cacheSolve <- function(X) {
                 message("getting cached data")
                 return(inv)
         }
-        M <- X$get()  # Run the 'get' function from X
-        inv <- solve(M)
-        X$setinv(inv)
-        inv
+        M <- X$get()   # Run the 'get' function from X
+        inv <- solve(M)  # Use the built-it 'solve' to compute the inverse
+        X$setinv(inv)  # Send the computed inverse to the 'setinv' function,
+                       #      which will cache the inverse for future use
+        inv   # Display the inverse
 }
